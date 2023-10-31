@@ -17,6 +17,19 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // ---- Verwachte uitkomst: 6
 
 
+let count = 0
+
+for (let i = 0; i < grades.length; i++) {
+    if(grades[i] > 7) {
+       count++
+    }
+}
+
+console.log(count)
+
+
+
+
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
@@ -27,6 +40,26 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+
+
+function cumLaude(gradeArray) {
+    let count = 0
+    for (let i = 0; i < grades.length; i++) {
+        if(grades[i] > 7) {
+            count++
+        // of count = count + 1
+        }
+    }
+    return count
+//     en dan count
+}
+
+const numberOfCumLaude = cumLaude(grades)
+console.log(numberOfCumLaude)
+
+// Waarom kan ik bij die vorige wel 2 verschillende counts hebben en bij deze niet? ik moest hem sowieso opnieuw declareren
+// omdat de count anders de uitslag was van de vorige log.
+// bij count = count++ en dan return count krijg ik 0. alleen count++ en return count wel 6. count + 1 en return count weer 0
 
 
 
@@ -43,10 +76,32 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // ---- Verwachte uitkomst: 6.642857142857143
 
 
+let total = 0
+
+for (let i = 0; i < grades.length; i++) {
+    total = (total + grades[i]) /grades.length
+}
+
+console.log(total);
+
+
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+
+function averageGrade(gradeArray) {
+    let total = 0
+    for (let i = 0; i < gradeArray.length; i++) {
+        total = total + gradeArray[i]
+    }
+
+    return total / gradeArray.length
+}
+
+const averageOne = averageGrade(grades)
+
+console.log(averageOne.toFixed(2))
 
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
@@ -72,6 +127,16 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 9
 
+let largestNum = 0
+
+for (let i = 0; i < grades.length; i++) {
+if (grades[i] > largestNum) {
+    largestNum = grades[i]
+}
+}
+
+console.log(largestNum)
+
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
@@ -82,3 +147,15 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+function highestGrade(gradeArray) {
+    let largestNum = 0
+    for (let i = 0; i < grades.length; i++) {
+        if (grades[i] > largestNum) {
+            largestNum = grades[i]
+}}
+    return largestNum
+}
+
+    const highestNumber = highestGrade(grades)
+    console.log(highestNumber)
